@@ -26,6 +26,7 @@
     padding: 10px;
     border:none;
     width: 100%;
+    align-self: center;
 }
 
 .header__searchIcon{
@@ -44,6 +45,10 @@
     text-decoration: none;
 }
 
+.header__optionbasket{
+color: white;
+}
+
 .header__option{
     display: flex;
     flex-direction: column;
@@ -59,4 +64,14 @@
 .header__optionLineTwo{
     font-size: 13px;
     font-weight: 800;
+}
+
+.header__optionbasket{
+    display: flex;
+    align-items: center;
+}
+
+.header__basketCount{
+    margin-left: 10px;
+    margin-right: 10px;
 }
