@@ -7,6 +7,7 @@ import Checkout from './Checkout'
 
 function App() {
   return (
+    
     <Router>
     <div className="App">
       <Switch>
@@ -24,6 +25,8 @@ function App() {
       </Switch>
       </div>
     </Router>
+
+    
   );
 }
 
