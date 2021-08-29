@@ -36,3 +36,10 @@
     border:1px solid;
     border-color: #a58734 #9c7e31 #846a29 ;
 }
+.product > button:hover{
+    background-color: rgb(219, 169, 41);
+    border:1px solid;
+    border-color: #a58734 #9c7e31 #846a29 ;
+    cursor: pointer;
+}
+

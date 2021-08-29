@@ -4,12 +4,18 @@ import './Header.css'
 import { Link } from 'react-router-dom';
 import ShoppingBasketIcon from '@material-ui/icons/RemoveShoppingCartRounded';
 import { useStateValue } from './StateProvider';
+import { auth } from './Firebase';
 
 function Header(){
 
-    const [{basket}, dispatch] = useStateValue();
+    const [{basket,loggedinuser}, dispatch] = useStateValue();
 
-    console.log("my basket ",basket)
+    //console.log("my basket ",basket)
+    const logoutUser = () =>{
+        if(loggedinuser){
+            auth.signOut();
+        }
+    }
     return(
         <nav className="header">
             <img className="header__logo" src="https://i0.wp.com/zeevector.com/wp-content/uploads/LOGO/Amazon-India-Logo-PNG-White.png?fit=636%2C193&ssl=1" alt="logo" />
@@ -20,10 +26,10 @@ function Header(){
 
             <div className="header__nav">
                 {/*1st Link*/}
-                <Link to="/" className="header__link">
-                    <div className="header__option">
-                        <span className="header__optionLineOne">Hello, Users</span>
-                        <span className="header__optionLineTwo">Sign In </span>
+                <Link to={!loggedinuser && "/login"} className="header__link">
+                    <div onClick={logoutUser} className="header__option">
+                        <span className="header__optionLineOne">Hello, {loggedinuser?.email}</span>
+                        <span className="header__optionLineTwo">{loggedinuser ? 'Sign Out' : 'Sign In'}</span>
                     </div>
                 </Link>
                 {/*2nd Link*/}
